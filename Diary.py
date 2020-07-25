@@ -1,14 +1,14 @@
 import pathlib
+import datetime
+
 
 file = pathlib.Path("diary.txt")
 if file.exists ():
     f = open("diary.txt", "a")
-    f.write("Now the file has more content!")
+    timestamp = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
+    f.write("\n" +  timestamp+ ": Now the file has more content!")
     f.close()
 
-    #open and read the file after the appending:
-    f = open("diary.txt", "r")
-    print(f.read())
 else:
     print ("File not exist")
     
